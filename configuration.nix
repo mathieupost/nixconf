@@ -15,8 +15,6 @@
   nix.package = pkgs.nix;
   programs.nix-index.enable = true;
 
-  # List packages installed in system profile. To search by name, run:
-  # $ nix-env -qaP | grep wget
   homebrew = {
     enable = true;
     brews = [
@@ -27,6 +25,7 @@
       "1Password 7" = 1333542190;
       "Xcode" = 497799835;
       "AdGuard for Safari" = 1440147259;
+      "Vimari" = 1480933944;
     };
   };
 

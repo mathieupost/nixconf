@@ -12,6 +12,7 @@
   ];
 
   programs.bash.enable = true;
+  programs.zsh.enable = true;
   programs.fish = {
     enable = true;
     shellAliases = {
@@ -90,11 +91,8 @@
   };
 
   home.sessionVariables = {
-    FONTCONFIG_FILE = "${pkgs.fontconfig.out}/etc/fonts/fonts.conf";
     EDITOR = "nvim";
-    # GOPROXY = "goproxy.weave.nl";
-    PGDATA = "/usr/local/var/postgres";
-		SSL_CERT_FILE = "${pkgs.cacert.out}/etc/ssl/certs/ca-bundle.crt";
+    SSL_CERT_FILE = "${pkgs.cacert.out}/etc/ssl/certs/ca-bundle.crt";
 
     # HACK prepend sessionPath to PATH
     OLD_PATH = "$PATH";
@@ -120,7 +118,6 @@
     settings = { cmd_duration.min_time = 500; };
   };
 
-  programs.nix-index.enable = true;
   programs.pazi.enable = true;
   programs.dircolors.enable = true;
   programs.direnv = {
