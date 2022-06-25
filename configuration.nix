@@ -42,6 +42,32 @@
   # services.postgresql.enable = true;
   # services.postgresql.extraPlugins = [ /* configure postgis */ ]
 
+  environment.systemPackages = with pkgs; [ tailscale ];
+
+  # Tailscale
+  environment.launchDaemons."com.tailscale.tailscaled.plist" = {
+    text = ''
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+
+        <key>Label</key>
+        <string>com.tailscale.tailscaled</string>
+
+        <key>ProgramArguments</key>
+        <array>
+          <string>${pkgs.tailscale}/bin/tailscaled</string>
+        </array>
+
+        <key>RunAtLoad</key>
+        <true/>
+
+      </dict>
+      </plist>
+    '';
+  };
+
   # Fonts
   fonts = {
     fontDir.enable = true;
