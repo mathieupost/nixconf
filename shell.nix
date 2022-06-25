@@ -58,9 +58,7 @@
           echo "opening $file" && \
           open "$file"
       '';
-
-
-
+      sw = "darwin-rebuild switch --flake ~/.config/nixpkgs";
     };
     shellInit = ''
       any-nix-shell fish --info-right | source
