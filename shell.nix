@@ -113,7 +113,10 @@
 
   programs.starship = {
     enable = true;
-    settings = { cmd_duration.min_time = 500; };
+    settings = {
+      cmd_duration.min_time = 500;
+      command_timeout = 1000;
+    };
   };
 
   programs.pazi.enable = true;
