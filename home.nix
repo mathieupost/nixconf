@@ -5,6 +5,7 @@
     ./git.nix
     ./shell.nix
     ./ssh.nix
+    ./emacs.nix
   ];
 
   programs = {
@@ -47,15 +48,6 @@
     nodePackages.neovim
     tree-sitter
     efm-langserver # general purpose lsp
-
-    # Emacs/LaTeX
-    emacs
-    texlive.combined.scheme-full
-    graphviz
-    inkscape
-    imagemagick
-    plantuml
-    (aspellWithDicts (dicts: with dicts; [ nl en en-computers en-science ]))
 
     pgcli # postgres cli
     (postgresql_13.withPackages (p: [ p.postgis ]))
