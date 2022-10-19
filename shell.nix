@@ -97,6 +97,11 @@
     # HACK prepend sessionPath to PATH
     OLD_PATH = "$PATH";
     PATH = "";
+
+    # GO
+    GOPATH = "$HOME/Dev";
+    GOBIN = "$HOME/Dev/bin";
+    GOPRIVATE = "lab.weave.nl";
   };
   home.sessionPath = [
     "$HOME/.local/bin"
@@ -108,9 +113,9 @@
   ];
 
   programs.go = {
-    goPath = "$HOME/Dev";
-    goBin = "$HOME/Dev/bin";
-    goPrivate = "lab.weave.nl";
+    goPath = "$GOPATH";
+    goBin = "$GOBIN";
+    goPrivate = "$GOPRIVATE";
   };
 
   programs.starship = {
