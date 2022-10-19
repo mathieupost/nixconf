@@ -75,6 +75,7 @@
     settings = {
       term = "xterm-256color";
       macos_thicken_font = "0.25";
+      macos_option_as_alt = "yes";
       scrollback_lines = 100000;
       close_on_child_death = "yes";
       hide_window_decorations = "yes";
