@@ -22,8 +22,9 @@
       "languagetool"
     ];
     masApps = {
-      "1Password 7" = 1333542190;
       "Xcode" = 497799835;
+      "1Password for Safari" = 1569813296;
+      # "1Password 7" = 1333542190; TODO update to 1Password 8 when available.
       "AdGuard for Safari" = 1440147259;
       "Vimari" = 1480933944;
     };
