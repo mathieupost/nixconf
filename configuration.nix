@@ -34,6 +34,7 @@
   programs.zsh.enable = true;
   programs.fish = {
     enable = true;
+    # loginShellInit = ''for p in (string split " " $NIX_PROFILES); fish_add_path --prepend --move $p/bin; end'';
   };
 
   # checkout lorri for automatic direnv shell.nix integration

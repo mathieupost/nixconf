@@ -46,15 +46,14 @@
     graphicsmagick # for pdfs
 
     # editor
-    neovim
-    nodePackages.neovim
+    neovim-nightly
     efm-langserver # general purpose lsp
 
     pgcli # postgres cli
     (postgresql_13.withPackages (p: [ p.postgis ]))
 
     # golang
-    go
+    go_1_18
     gopls # lsp
     gotools # goimports etc.
     gofumpt # formatter like gofmt
@@ -85,6 +84,8 @@
         matplotlib
       ]))
     python39Packages.pip
+    python39Packages.pytest
+    python39Packages.debugpy
     pipenv # create environments per project
     nodePackages.pyright # lsp
     python39Packages.pyflakes # check errors/imports

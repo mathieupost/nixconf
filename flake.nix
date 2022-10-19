@@ -2,9 +2,10 @@
   description = "Nix Darwin configuration";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    # nixpkgs.url = "github:NixOS/nixpkgs/22.05";
-    # unstable.url = "github:NixOS/nixpkgs";
+    nixpkgs.url = "github:NixOS/nixpkgs/22.05";
+    unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    neovim.url = "github:nix-community/neovim-nightly-overlay";
+    neovim.inputs.nixpkgs.follows = "nixpkgs";
 
     darwin = {
       url = "github:lnl7/nix-darwin";
@@ -18,13 +19,26 @@
     };
   };
 
-  outputs = inputs@{ self, darwin, nixpkgs, homeManager }: {
+  outputs = inputs@{ self, darwin, nixpkgs, unstable, homeManager, neovim }: {
     darwinConfigurations = {
-      MacBook-Pro = darwin.lib.darwinSystem {
+      MathieukBookPro = darwin.lib.darwinSystem {
         system = "x86_64-darwin";
         inputs = { inherit darwin nixpkgs homeManager; };
         modules = [
-          ./configuration.nix
+          ({ config, pkgs, ... }:
+            let
+              overlay-unstable = final: prev: {
+                unstable = unstable.legacyPackages.x86_64-darwin;
+              };
+              neovim-nightly-overlay = neovim.overlay;
+            in
+            {
+              nixpkgs.overlays = [
+                overlay-unstable
+                neovim-nightly-overlay
+              ];
+            }
+          )
           homeManager.darwinModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -38,30 +52,18 @@
               ];
             };
           }
-        ];
-      };
-      Mathieus-HackBook-Pro = darwin.lib.darwinSystem {
-        system = "x86_64-darwin";
-        inputs = { inherit darwin nixpkgs homeManager; };
-        modules = [
           ./configuration.nix
-          homeManager.darwinModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.mathieu = { pkgs, ... }: {
-              nix.package = pkgs.nix;
-
-              imports = [
-                ./home.nix
-                ./darwin.nix
-              ];
-            };
-          }
         ];
       };
     };
   };
+  # in {
+  #   darwinConfigurations = {
+  #     MacBook-Pro = mySystem;
+  #     Mathieus-HackBook-Pro = mySystem;
+  #     MathieukBookPro = mySystem;
+  #   };
+  # };
 }
 #           pkgs = import nixpkgs {
 #             inherit system;
