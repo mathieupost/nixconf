@@ -72,6 +72,9 @@
       name = "JetBrainsMono Nerd Font Mono";
       size = 13;
     };
+    keybindings = {
+      "kitty_mod+f" = "launch --type=overlay --stdin-source=@screen_scrollback fzf --no-sort --no-mouse --exact -i";
+    };
     settings = {
       term = "xterm-256color";
       macos_thicken_font = "0.25";
