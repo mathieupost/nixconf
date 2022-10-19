@@ -16,6 +16,7 @@
     extraOptionOverrides = {
       IdentityFile = "~/.ssh/id_rsa";
       AddKeysToAgent = "yes";
+      Include = "~/.ssh/gce_config";
     };
   };
 }
