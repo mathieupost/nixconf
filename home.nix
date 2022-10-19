@@ -19,6 +19,8 @@
     nix # manage nix with Home Manager. DON'T REMOVE
     rnix-lsp
 
+    thefuck
+
     docker
     # nicotine-plus # Soulseek client
 

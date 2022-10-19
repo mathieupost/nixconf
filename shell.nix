@@ -62,6 +62,7 @@
     };
     shellInit = ''
       any-nix-shell fish --info-right | source
+      thefuck --alias | source
     '';
   };
 
