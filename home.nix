@@ -48,7 +48,6 @@
     # editor
     neovim
     nodePackages.neovim
-    tree-sitter
     efm-langserver # general purpose lsp
 
     pgcli # postgres cli
