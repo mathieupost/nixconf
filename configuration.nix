@@ -34,8 +34,6 @@
   programs.zsh.enable = true;
   programs.fish = {
     enable = true;
-    useBabelfish = true;
-    babelfishPackage = pkgs.babelfish;
   };
 
   # checkout lorri for automatic direnv shell.nix integration
