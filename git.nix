@@ -23,10 +23,12 @@
     ignores = [
       ".DS_Store"
       "._*"
-      "shell.nix"
-      ".envrc"
       ".ignore"
       ".pre-commit-config.yaml"
+      ".envrc"
+      ".direnv/"
+      ".nix/"
+      "result" # nix flake result file
     ];
 
     aliases = {
