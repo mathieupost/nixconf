@@ -7,8 +7,8 @@
     enable = true;
     userName = "Mathieu Post";
     userEmail = "mathieupost@gmail.com";
-    # signing.key = "3D10CCF4CFF59E21";
-    # signing.signByDefault = true;
+    signing.key = "3D10CCF4CFF59E21";
+    signing.signByDefault = true;
 
     includes = [{
       condition = "gitdir:~/Dev/src/lab.weave.nl/**/.git";
