@@ -19,55 +19,53 @@
     };
   };
 
-  outputs = inputs@{ self, darwin, nixpkgs, unstable, homeManager, neovim }: {
-    darwinConfigurations = {
-      MathieukBookPro = darwin.lib.darwinSystem {
-        system = "x86_64-darwin";
-        inputs = { inherit darwin nixpkgs homeManager; };
-        modules = [
-          ({ config, pkgs, ... }:
-            let
-              overlay-unstable = final: prev: {
-                unstable = unstable.legacyPackages.x86_64-darwin;
-              };
-              neovim-nightly-overlay = neovim.overlay;
-            in
-            {
-              nixpkgs.overlays = [
-                overlay-unstable
-                neovim-nightly-overlay
-              ];
-            }
-          )
-          homeManager.darwinModules.home-manager
+  outputs = inputs@{ self, darwin, nixpkgs, unstable, homeManager, neovim }:
+    let mySystem = darwin.lib.darwinSystem {
+      system = "x86_64-darwin";
+      inputs = { inherit darwin nixpkgs homeManager; };
+      modules = [
+        ({ config, pkgs, ... }:
+          let
+            overlay-unstable = final: prev: {
+              unstable = unstable.legacyPackages.x86_64-darwin;
+            };
+            neovim-nightly-overlay = neovim.overlay;
+          in
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            users.users.mathieu = {
-              name = "mathieu";
-              home = "/Users/mathieu";
-            };
-            home-manager.users.mathieu = { pkgs, ... }: {
-              nix.package = pkgs.nix;
-
-              imports = [
-                ./home.nix
-                ./darwin.nix
-              ];
-            };
+            nixpkgs.overlays = [
+              overlay-unstable
+              neovim-nightly-overlay
+            ];
           }
-          ./configuration.nix
-        ];
+        )
+        homeManager.darwinModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          users.users.mathieu = {
+            name = "mathieu";
+            home = "/Users/mathieu";
+          };
+          home-manager.users.mathieu = { pkgs, ... }: {
+            nix.package = pkgs.nix;
+
+            imports = [
+              ./home.nix
+              ./darwin.nix
+            ];
+          };
+        }
+        ./configuration.nix
+      ];
+    };
+    in
+    {
+      darwinConfigurations = {
+        MacBook-Pro = mySystem;
+        Mathieus-HackBook-Pro = mySystem;
+        MathieukBookPro = mySystem;
       };
     };
-  };
-  # in {
-  #   darwinConfigurations = {
-  #     MacBook-Pro = mySystem;
-  #     Mathieus-HackBook-Pro = mySystem;
-  #     MathieukBookPro = mySystem;
-  #   };
-  # };
 }
 #           pkgs = import nixpkgs {
 #             inherit system;
