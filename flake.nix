@@ -43,6 +43,10 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            users.users.mathieu = {
+              name = "mathieu";
+              home = "/Users/mathieu";
+            };
             home-manager.users.mathieu = { pkgs, ... }: {
               nix.package = pkgs.nix;
 
