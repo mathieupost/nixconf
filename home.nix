@@ -53,7 +53,10 @@
     (postgresql_13.withPackages (p: [ p.postgis ]))
 
     # golang
-    go
+    unstable.go
+    unstable.gopls # lsp
+    unstable.gotools # goimports etc.
+    unstable.gofumpt # formatter like gofmt
 
     # web lsp's
     nodePackages.vscode-langservers-extracted
