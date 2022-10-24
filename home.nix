@@ -53,14 +53,7 @@
     (postgresql_13.withPackages (p: [ p.postgis ]))
 
     # golang
-    go_1_18
-    gopls # lsp
-    gotools # goimports etc.
-    gofumpt # formatter like gofmt
-    # golangci-lint # code linter
-    # cobra # cli project generator
-    # go-mockery
-    protoc-gen-go
+    go
 
     # web lsp's
     nodePackages.vscode-langservers-extracted
