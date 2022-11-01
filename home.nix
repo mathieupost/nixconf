@@ -20,6 +20,7 @@
     rnix-lsp
 
     thefuck
+    terminal-notifier
 
     docker
     # nicotine-plus # Soulseek client
