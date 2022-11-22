@@ -48,10 +48,12 @@
 
       core = {
         editor = "vim";
+        excludesFile = "~/.config/git/ignore";
       };
 
       pull.rebase = "true";
       rebase.autostash = "true";
+      push.autoSetupRemote = "true";
 
       merge.tool = "vimdiff";
       merge.conflictstyle = "diff3";
