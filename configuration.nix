@@ -8,8 +8,7 @@
     experimental-features = nix-command flakes
   '';
   nix.configureBuildUsers = true;
-  nix.settings.auto-optimise-store = true;
-
+  # nix.settings.auto-optimise-store = true;
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
 
