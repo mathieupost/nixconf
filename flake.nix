@@ -20,14 +20,17 @@
   };
 
   outputs = inputs@{ self, darwin, nixpkgs, unstable, homeManager, neovim }:
-    let mySystem = darwin.lib.darwinSystem {
+    let mySystem = darwin.lib.darwinSystem rec {
       system = "x86_64-darwin";
       inputs = { inherit darwin nixpkgs homeManager; };
       modules = [
         ({ config, pkgs, ... }:
           let
             overlay-unstable = final: prev: {
-              unstable = unstable.legacyPackages.x86_64-darwin;
+              unstable = import unstable {
+                inherit system;
+                config = prev.pkgs.config;
+              };
             };
             neovim-nightly-overlay = neovim.overlay;
           in
@@ -40,15 +43,14 @@
         )
         homeManager.darwinModules.home-manager
         {
+          nix.nixPath = [ "nixpkgs=${nixpkgs}" "nixpkgs-unstable=${unstable}" ];
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           users.users.mathieu = {
             name = "mathieu";
             home = "/Users/mathieu";
           };
-          home-manager.users.mathieu = { pkgs, ... }: {
-            nix.package = pkgs.nix;
-
+          home-manager.users.mathieu = { ... }: {
             imports = [
               ./home.nix
               ./darwin.nix
@@ -67,19 +69,4 @@
       };
     };
 }
-#           pkgs = import nixpkgs {
-#             inherit system;
-#             config = {
-#               allowUnfree = true;
-#               allowBroken = true;
-#             };
-#             overlays = [
-#               (final: prev: {
-#                 unstable = import unstable {
-#                   inherit system;
-#                   config = prev.pkgs.config;
-#                 };
-#               })
-#             ];
-#           };
 # vim: sw=2 sts=2 ts=2 fdm=indent expandtab

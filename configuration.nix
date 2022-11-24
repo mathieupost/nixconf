@@ -3,7 +3,7 @@
 {
   nixpkgs.config.allowUnfree = true;
   # Enable experimental nix command and flakes
-  # nix.package = pkgs.nixUnstable;
+  nix.package = pkgs.unstable.nix;
   nix.extraOptions = ''
     experimental-features = nix-command flakes
   '';
@@ -12,8 +12,10 @@
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
-  nix.package = pkgs.nix;
+
+  # Enable searching the index for missing binaries
   programs.nix-index.enable = true;
+  programs.nix-index.package = pkgs.unstable.nix-index;
 
   homebrew = {
     enable = true;

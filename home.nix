@@ -16,7 +16,6 @@
   };
 
   home.packages = with pkgs; [
-    nix # manage nix with Home Manager. DON'T REMOVE
     rnix-lsp
 
     thefuck
