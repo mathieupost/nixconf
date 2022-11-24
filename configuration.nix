@@ -30,11 +30,10 @@
     };
   };
 
-  environment.shells = [ pkgs.fish pkgs.zsh ];
+  environment.shells = [ pkgs.fish pkgs.zsh pkgs.bash ];
+  programs.bash.enable = true;
   programs.zsh.enable = true;
-  programs.fish = {
-    enable = true;
-  };
+  programs.fish.enable = true;
 
   # Tailscale
   environment.systemPackages = with pkgs; [ tailscale ];
