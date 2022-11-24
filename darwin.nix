@@ -13,10 +13,15 @@
   darwin.fullCopies = true;
   targets.darwin = {
     defaults = {
-      com.apple.Safari.AutoFillPasswords = false;
-      com.apple.Safari.AutoFillCreditCardData = false;
-      com.apple.Safari.IncludeDevelopMenu = true;
-      com.apple.menuextra.battery.ShowPercent = true;
+      "com.apple.Safari" = {
+        AutoFillPasswords = false;
+        AutoFillCreditCardData = true;
+        IncludeDevelopMenu = true;
+        ShowOverlayStatusBar = true;
+      };
+      "com.apple.menuextra.battery" = {
+        ShowPercent = true;
+      };
     };
     search = "Ecosia";
   };
