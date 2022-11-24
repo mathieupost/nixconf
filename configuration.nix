@@ -27,6 +27,9 @@
       "1Password for Safari" = 1569813296;
       "AdGuard for Safari" = 1440147259;
       "Vimari" = 1480933944;
+      "Glance" = 1564688210;
+      "Slack" = 803453959;
+      "Save to Matter" = 1548677272;
     };
   };
 
