@@ -16,8 +16,6 @@
   };
 
   home.packages = with pkgs; [
-    rnix-lsp
-
     thefuck
     terminal-notifier
 
@@ -52,6 +50,9 @@
     pgcli # postgres cli
     (postgresql_13.withPackages (p: [ p.postgis ]))
 
+    # nix lang
+    rnix-lsp
+
     # golang
     unstable.go
     unstable.gopls # lsp
@@ -70,24 +71,9 @@
     sumneko-lua-language-server # lsp
 
     # python
-    (python3Full.withPackages (ps:
-      with ps;
-      with python3Packages; [
-        pynvim # python neovim support
-        # scientific libs
-        numpy
-        pandas
-        matplotlib
-      ]))
-    python39Packages.pip
-    python39Packages.pytest
-    python39Packages.debugpy
-    pipenv # create environments per project
-    nodePackages.pyright # lsp
-    python39Packages.pyflakes # check errors/imports
-    python39Packages.pylint
-    python39Packages.isort # sort imports
-    black # python code formatter
+    python38Full
+    python38Packages.pip
+    unstable.poetry
 
     # rust
     cargo
