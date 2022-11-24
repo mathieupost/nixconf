@@ -25,7 +25,6 @@
     masApps = {
       "Xcode" = 497799835;
       "1Password for Safari" = 1569813296;
-      # "1Password 7" = 1333542190; TODO update to 1Password 8 when available.
       "AdGuard for Safari" = 1440147259;
       "Vimari" = 1480933944;
     };
@@ -35,17 +34,10 @@
   programs.zsh.enable = true;
   programs.fish = {
     enable = true;
-    # loginShellInit = ''for p in (string split " " $NIX_PROFILES); fish_add_path --prepend --move $p/bin; end'';
   };
 
-  # checkout lorri for automatic direnv shell.nix integration
-
-  # services.postgresql.enable = true;
-  # services.postgresql.extraPlugins = [ /* configure postgis */ ]
-
-  environment.systemPackages = with pkgs; [ tailscale ];
-
   # Tailscale
+  environment.systemPackages = with pkgs; [ tailscale ];
   environment.launchDaemons."com.tailscale.tailscaled.plist" = {
     text = ''
       <?xml version="1.0" encoding="UTF-8"?>

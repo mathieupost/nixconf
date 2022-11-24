@@ -4,8 +4,6 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/22.05";
     unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-    neovim.url = "github:nix-community/neovim-nightly-overlay";
-    neovim.inputs.nixpkgs.follows = "nixpkgs";
 
     darwin = {
       url = "github:lnl7/nix-darwin";
@@ -17,6 +15,9 @@
       # url = "path:/Users/mathieu/Dev/src/m9t.dev/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    neovim.url = "github:nix-community/neovim-nightly-overlay";
+    neovim.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs@{ self, darwin, nixpkgs, unstable, homeManager, neovim }:
