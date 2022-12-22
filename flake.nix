@@ -64,6 +64,7 @@
     in
     {
       darwinConfigurations = {
+        Mathieus-MBP = mySystem;
         MacBook-Pro = mySystem;
         Mathieus-HackBook-Pro = mySystem;
         MathieukBookPro = mySystem;
