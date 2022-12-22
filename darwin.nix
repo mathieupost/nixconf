@@ -19,9 +19,6 @@
         IncludeDevelopMenu = true;
         ShowOverlayStatusBar = true;
       };
-      "com.apple.menuextra.battery" = {
-        ShowPercent = true;
-      };
     };
     search = "Ecosia";
   };
