@@ -1,21 +1,28 @@
 # Git settings
 { config, lib, pkgs, cacert, ... }:
 
-{
+rec {
+  home.file.".config/git/allowed_signers".text = ''
+    mathieupost@gmail.com ${programs.git.signing.key}
+    mathieu@weave.nl ${programs.git.signing.key}
+  '';
   programs.git = {
     package = pkgs.gitAndTools.gitFull;
     enable = true;
     userName = "Mathieu Post";
     userEmail = "mathieupost@gmail.com";
-    signing.key = "3D10CCF4CFF59E21";
+    signing.key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBbeb4QZBgW72csW6GE4P0a/rDe7dSN/HOr4DY4bx2oO";
     signing.signByDefault = true;
+    iniContent.gpg.format = "ssh";
+    iniContent.gpg.ssh.program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
+    iniContent.gpg.ssh.allowedSignersFile = "~/.config/git/allowed_signers";
+
 
     includes = [{
       condition = "gitdir:~/Dev/src/lab.weave.nl/**/.git";
       contents = {
         user = {
           email = "mathieu@weave.nl";
-          signingKey = "66504F65E6311838";
         };
       };
     }];
