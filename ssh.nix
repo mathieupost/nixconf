@@ -4,9 +4,7 @@
   programs.ssh = {
     enable = true;
     extraOptionOverrides = {
-      IdentityFile = "~/.ssh/id_rsa";
-      AddKeysToAgent = "yes";
-      Include = "~/.ssh/gce_config";
+      IdentityAgent = "\"~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock\"";
     };
   };
 }
