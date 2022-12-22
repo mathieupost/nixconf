@@ -19,6 +19,7 @@
     thefuck
     terminal-notifier
 
+    unstable._1password # 1password cli
     docker
     # nicotine-plus # Soulseek client
 
