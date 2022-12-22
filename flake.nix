@@ -17,7 +17,7 @@
     };
 
     neovim.url = "github:nix-community/neovim-nightly-overlay";
-    neovim.inputs.nixpkgs.follows = "nixpkgs";
+    neovim.inputs.nixpkgs.follows = "unstable";
   };
 
   outputs = inputs@{ self, darwin, nixpkgs, unstable, homeManager, neovim }:
