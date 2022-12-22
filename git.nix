@@ -33,9 +33,9 @@
 
     aliases = {
       gl = "!git --no-pager log -10 --graph --pretty=\"%Cred%h%C(yellow)%d%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset\"";
-      wip = "!git add -A && git commit -m 'WIP'";
+      wip = "!git add -A && git commit -m 'chore: work in progress (WIP)'";
       undo = "reset HEAD~1 --mixed";
-      wipe = "!git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard";
+      wipe = "!git add -A && git commit --no-verify --quiet -m 'WIPE SAVEPOINT' && git reset HEAD~1 --hard";
       fixup = "!f() { git commit --fixup \${1} && git rebase \${1}~1 -i --autosquash; }; f";
       stash-staged = "!git stash --keep-index && git stash push -m 'staged' --keep-index && git stash pop stash@{1}";
       log-since-last-tag = "!git log $(git describe origin/master --tags --abbrev=0)..origin/master --oneline";
