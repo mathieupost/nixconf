@@ -27,7 +27,6 @@
     functions = {
       darwin-switch = ''
         darwin-rebuild switch --flake ~/.config/nixpkgs
-        rm result
       '';
       fish_title = "prompt_pwd";
       fuzzy = ''
