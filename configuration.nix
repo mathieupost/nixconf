@@ -33,6 +33,10 @@
     };
   };
 
+  system.activationScripts.postUserActivation.text = ''
+    cp -f ${pkgs.unstable._1password}/bin/op /usr/local/bin/op
+  '';
+
   environment.shells = [ pkgs.fish pkgs.zsh pkgs.bash ];
   programs.bash.enable = true;
   programs.zsh.enable = true;
