@@ -42,6 +42,8 @@
   programs.zsh.enable = true;
   programs.fish.enable = true;
 
+  security.pam.enableSudoTouchIdAuth = true;
+
   # Tailscale
   environment.systemPackages = with pkgs; [ tailscale ];
   environment.launchDaemons."com.tailscale.tailscaled.plist" = {
