@@ -74,7 +74,7 @@
   programs.kitty = {
     enable = true;
     font = {
-      name = "JetBrainsMono Nerd Font Mono";
+      name = "JetBrainsMono Nerd Font";
       size = 13;
     };
     keybindings = {

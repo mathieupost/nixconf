@@ -15,6 +15,8 @@
     # java.enable = true;
   };
 
+  fonts.fontconfig.enable = true;
+
   home.packages = with pkgs; [
     thefuck
     terminal-notifier
