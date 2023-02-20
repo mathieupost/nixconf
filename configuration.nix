@@ -22,16 +22,15 @@
     enable = true;
     brews = [
       "mas"
-      "languagetool"
     ];
     masApps = {
       "Xcode" = 497799835;
       "1Password for Safari" = 1569813296;
       "AdGuard for Safari" = 1440147259;
+      "Super Agent" = 1568262835;
       "Vimari" = 1480933944;
-      "Glance" = 1564688210;
       "Slack" = 803453959;
-      "Save to Matter" = 1548677272;
+      "Save to Reader" = 1640236961;
     };
   };
 
