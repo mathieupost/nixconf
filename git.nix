@@ -51,8 +51,6 @@ rec {
     };
 
     extraConfig = {
-      credential.helper = "osxkeychain";
-
       core = {
         editor = "vim";
         excludesFile = "~/.config/git/ignore";
