@@ -23,6 +23,7 @@
       "....." = "cd ../../../..";
       "......" = "cd ../../../../..";
       "zf" = "z --pipe=fzf";
+      "glab" = "op plugin run -- glab";
     };
     functions = {
       darwin-switch = ''
