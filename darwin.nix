@@ -8,6 +8,7 @@
       sha256 = "0lsa8ncwvv5qzar2sa8mxblhg6wcq5y6h9ny7kgmsby4wzaryz67";
     })
   ];
+  disabledModules = [ "targets/darwin/linkapps.nix" ];
 
   darwin.installApps = true;
   darwin.fullCopies = true;

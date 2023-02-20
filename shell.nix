@@ -11,8 +11,6 @@
     nix-prefetch-github
   ];
 
-  programs.nix-index.enable = true;
-  programs.nix-index.package = pkgs.unstable.nix-index;
   programs.bash.enable = true;
   programs.zsh.enable = true;
   programs.fish = {

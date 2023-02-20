@@ -2,7 +2,7 @@
   description = "Nix Darwin configuration";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/22.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/22.11";
     unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     darwin = {
@@ -11,8 +11,13 @@
     };
 
     homeManager = {
-      url = "github:nix-community/home-manager/release-22.05";
+      url = "github:nix-community/home-manager/release-22.11";
       # url = "path:/Users/mathieu/Dev/src/m9t.dev/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixIndexDatabase = {
+      url = "github:Mic92/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -20,7 +25,7 @@
     neovim.inputs.nixpkgs.follows = "unstable";
   };
 
-  outputs = inputs@{ self, darwin, nixpkgs, unstable, homeManager, neovim }:
+  outputs = inputs@{ self, darwin, nixpkgs, unstable, homeManager, nixIndexDatabase, neovim }:
     let mySystem = darwin.lib.darwinSystem rec {
       system = "x86_64-darwin";
       inputs = { inherit darwin nixpkgs homeManager; };
@@ -42,16 +47,23 @@
             ];
           }
         )
+        # Enable searching the index for missing binaries
+        nixIndexDatabase.nixosModules.nix-index
         homeManager.darwinModules.home-manager
         {
           nix.nixPath = [ "nixpkgs=${nixpkgs}" "nixpkgs-unstable=${unstable}" ];
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+
           users.users.mathieu = {
             name = "mathieu";
             home = "/Users/mathieu";
           };
-          home-manager.users.mathieu = { ... }: {
+          home-manager.users.mathieu = { config, pkgs, lib, ... }: {
+            home.stateVersion = "22.11";
+            home.file."${config.xdg.cacheHome}/nix-index/files".source =
+              nixIndexDatabase.legacyPackages.${pkgs.stdenv.system}.database;
+
             imports = [
               ./home.nix
               ./darwin.nix
@@ -67,6 +79,7 @@
         Mathieus-MBP = mySystem;
         MacBook-Pro = mySystem;
         Mathieus-HackBook-Pro = mySystem;
+        Mathieus-MacBook-Pro = mySystem;
         MathieukBookPro = mySystem;
       };
     };

@@ -14,10 +14,6 @@
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
 
-  # Enable searching the index for missing binaries
-  programs.nix-index.enable = true;
-  programs.nix-index.package = pkgs.unstable.nix-index;
-
   homebrew = {
     enable = true;
     brews = [
