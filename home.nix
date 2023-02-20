@@ -49,7 +49,7 @@
     graphicsmagick # for pdfs
 
     # editor
-    neovim-nightly
+    unstable.neovim
     efm-langserver # general purpose lsp
 
     pgcli # postgres cli
