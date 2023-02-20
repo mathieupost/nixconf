@@ -21,9 +21,11 @@
     thefuck
     terminal-notifier
 
-    unstable._1password # 1password cli
+    unstable._1password # cli
+    # unstable._1password-gui # does not work.
     docker
     # nicotine-plus # Soulseek client
+    jre_minimal
 
     # cli tools
     coreutils # gnu coreutils
