@@ -48,6 +48,7 @@ rec {
       log-since-last-tag = "!git log $(git describe origin/master --tags --abbrev=0)..origin/master --oneline";
       log-since-last-tag-main = "!git log $(git describe origin/main --tags --abbrev=0)..origin/main --oneline";
       open = "!open $(git config --get remote.origin.url | sed 's%:%/%g' | sed 's%git@%https://%g' | sed 's%\.git%%g')";
+      fuzzy-checkout = "!git checkout --track $(git branch --all | fzf | tr -d \\[:space:\\])";
     };
 
     extraConfig = {
