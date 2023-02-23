@@ -24,55 +24,6 @@
       "glab" = "op plugin run -- glab";
     };
     functions = {
-      /* __fish_xdg_data_dirs_handler = { */
-      /*   body = '' */
-      /*     # Compute the directories for vendor configuration.  We want to include */
-      /*     # all of XDG_DATA_DIRS, as well as the __extra_* dirs defined above. */
-      /*     set -l xdg_data_dirs */
-      /*     if set -q XDG_DATA_DIRS */
-      /*         set --path xdg_data_dirs $XDG_DATA_DIRS */
-      /*         set xdg_data_dirs (string replace -r '([^/])/$' '$1' -- $xdg_data_dirs)/fish */
-      /*     else */
-      /*         set xdg_data_dirs $__fish_data_dir */
-      /*     end */
-      /**/
-      /*     set -g __fish_vendor_completionsdirs */
-      /*     set -g __fish_vendor_functionsdirs */
-      /*     set -g __fish_vendor_confdirs */
-      /*     # Don't load vendor directories when running unit tests */
-      /*     if not set -q FISH_UNIT_TESTS_RUNNING */
-      /*         set __fish_vendor_completionsdirs $__fish_user_data_dir/vendor_completions.d $xdg_data_dirs/vendor_completions.d */
-      /*         set __fish_vendor_functionsdirs $__fish_user_data_dir/vendor_functions.d $xdg_data_dirs/vendor_functions.d */
-      /*         set __fish_vendor_confdirs $__fish_user_data_dir/vendor_conf.d $xdg_data_dirs/vendor_conf.d */
-      /**/
-      /*         # Ensure that extra directories are always included. */
-      /*         if not contains -- $__extra_completionsdir $__fish_vendor_completionsdirs */
-      /*             set -a __fish_vendor_completionsdirs $__extra_completionsdir */
-      /*         end */
-      /*         if not contains -- $__extra_functionsdir $__fish_vendor_functionsdirs */
-      /*             set -a __fish_vendor_functionsdirs $__extra_functionsdir */
-      /*         end */
-      /*         if not contains -- $__extra_confdir $__fish_vendor_confdirs */
-      /*             set -a __fish_vendor_confdirs $__extra_confdir */
-      /*         end */
-      /*     end */
-      /**/
-      /*     # Set up function and completion paths. Make sure that the fish */
-      /*     # default functions/completions are included in the respective path. */
-      /**/
-      /*     if not set -q fish_function_path */
-      /*         set fish_function_path $__fish_config_dir/functions $__fish_sysconf_dir/functions $__fish_vendor_functionsdirs $__fish_data_dir/functions */
-      /*     else if not contains -- $__fish_data_dir/functions $fish_function_path */
-      /*         set -a fish_function_path $__fish_data_dir/functions */
-      /*     end */
-      /**/
-      /*     if not set -q fish_complete_path */
-      /*         set fish_complete_path $__fish_config_dir/completions $__fish_sysconf_dir/completions $__fish_vendor_completionsdirs $__fish_data_dir/completions $__fish_user_data_dir/generated_completions */
-      /*     else if not contains -- $__fish_data_dir/completions $fish_complete_path */
-      /*         set -a fish_complete_path $__fish_data_dir/completions */
-      /*     end */
-      /*   ''; */
-      /*   }; */
       darwin-switch = ''
         darwin-rebuild switch --flake ~/.config/nixpkgs
       '';
