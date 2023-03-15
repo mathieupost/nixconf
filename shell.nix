@@ -44,6 +44,8 @@
     };
     keybindings = {
       "kitty_mod+f" = "launch --type=overlay --stdin-source=@screen_scrollback fzf --no-sort --no-mouse --exact -i";
+      "shift+enter" = "send_text all \\x1b[13;2u";
+      "ctrl+enter" = "send_text all \\x1b[13;5u";
     };
     settings = {
       term = "xterm-256color";
