@@ -27,7 +27,7 @@
 
   outputs = inputs@{ self, darwin, nixpkgs, unstable, homeManager, nixIndexDatabase, neovim }:
     let mySystem = darwin.lib.darwinSystem rec {
-      system = "x86_64-darwin";
+      system = "aarch64-darwin";
       inputs = { inherit darwin nixpkgs homeManager; };
       modules = [
         ({ config, pkgs, ... }:
@@ -63,11 +63,7 @@
     in
     {
       darwinConfigurations = {
-        Mathieus-MBP = mySystem;
-        MacBook-Pro = mySystem;
-        Mathieus-HackBook-Pro = mySystem;
-        Mathieus-MacBook-Pro = mySystem;
-        MathieukBookPro = mySystem;
+        Mathieus-M2-Pro = mySystem;
       };
     };
 }
