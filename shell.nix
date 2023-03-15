@@ -64,20 +64,16 @@
 
   home.sessionVariables = {
     EDITOR = "nvim";
-
-    # GO
-    GOPATH = "$HOME/Dev";
-    GOBIN = "$HOME/Dev/bin";
-    GOPRIVATE = "lab.weave.nl";
   };
   home.sessionPath = [
     "/opt/homebrew/bin"
   ];
 
   programs.go = {
-    goPath = "$GOPATH";
-    goBin = "$GOBIN";
-    goPrivate = "$GOPRIVATE";
+    enable = true;
+    goPath = "Dev";
+    goBin = "Dev/bin";
+    goPrivate = [ "lab.weave.nl" ];
   };
 
   programs.starship = {
