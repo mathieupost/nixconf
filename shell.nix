@@ -64,7 +64,6 @@
 
   home.sessionVariables = {
     EDITOR = "nvim";
-    SSL_CERT_FILE = "${pkgs.cacert.out}/etc/ssl/certs/ca-bundle.crt";
 
     # GO
     GOPATH = "$HOME/Dev";
