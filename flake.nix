@@ -49,24 +49,14 @@
         )
         # Enable searching the index for missing binaries
         nixIndexDatabase.nixosModules.nix-index
-        homeManager.darwinModules.home-manager
         {
-          nix.nixPath = [ "nixpkgs=${nixpkgs}" "nixpkgs-unstable=${unstable}" ];
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-
-          users.users.mathieu = {
-            name = "mathieu";
-            home = "/Users/mathieu";
-          };
-          home-manager.users.mathieu = { config, pkgs, lib, ... }: {
-            home.stateVersion = "22.11";
-            imports = [
-              ./home.nix
-              ./darwin.nix
-            ];
-          };
+          nix.nixPath = [
+            { nixpkgs = "${nixpkgs}"; }
+            { nixpkgs-unstable = "${unstable}"; }
+          ];
         }
+        homeManager.darwinModules.home-manager
+        ./users.nix
         ./configuration.nix
       ];
     };
