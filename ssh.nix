@@ -12,5 +12,8 @@ in
       IdentityAgent = "\"${authSocket}\"";
     };
   };
+  home.packages = with pkgs; [
+    mosh
+  ];
 }
 # vim: sw=2 sts=2 ts=2 fdm=indent expandtab
