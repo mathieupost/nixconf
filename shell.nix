@@ -7,8 +7,6 @@
     comma # run everything with "," without installing
     babelfish # convert POSIX to fish
     ttyd # shell in your browser
-    nix-prefetch
-    nix-prefetch-github
   ];
 
   programs.bash.enable = true;
