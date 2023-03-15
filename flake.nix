@@ -61,9 +61,6 @@
           };
           home-manager.users.mathieu = { config, pkgs, lib, ... }: {
             home.stateVersion = "22.11";
-            home.file."${config.xdg.cacheHome}/nix-index/files".source =
-              nixIndexDatabase.legacyPackages.${pkgs.stdenv.system}.database;
-
             imports = [
               ./home.nix
               ./darwin.nix
