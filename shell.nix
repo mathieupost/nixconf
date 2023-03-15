@@ -66,22 +66,13 @@
     EDITOR = "nvim";
     SSL_CERT_FILE = "${pkgs.cacert.out}/etc/ssl/certs/ca-bundle.crt";
 
-    # HACK prepend sessionPath to PATH
-    OLD_PATH = "$PATH";
-    PATH = "";
-
     # GO
     GOPATH = "$HOME/Dev";
     GOBIN = "$HOME/Dev/bin";
     GOPRIVATE = "lab.weave.nl";
   };
   home.sessionPath = [
-    "$HOME/.local/bin"
-    "$HOME/Dev/bin"
-    "$HOME/Dev/sdk/flutter/.pub-cache/bin"
-    "$HOME/Dev/sdk/flutter/bin"
-    "$HOME/.emacs.d/bin"
-    "$OLD_PATH"
+    "/opt/homebrew/bin"
   ];
 
   programs.go = {
