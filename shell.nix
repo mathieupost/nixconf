@@ -24,11 +24,8 @@
       "glab" = "op plugin run -- glab";
     };
     functions = {
-      darwin-switch = ''
-        darwin-rebuild switch --flake ~/.config/nixpkgs
-      '';
-      fish_title = "prompt_pwd";
-      sw = "darwin-rebuild switch --flake ~/.config/nixpkgs";
+      darwin-switch = "darwin-rebuild switch --flake ~/.config/nixconf";
+      fish_title = "prompt_pwd"; # set terminal window title
     };
     shellInit = ''
       any-nix-shell fish --info-right | source
