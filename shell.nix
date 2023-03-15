@@ -28,40 +28,6 @@
         darwin-rebuild switch --flake ~/.config/nixpkgs
       '';
       fish_title = "prompt_pwd";
-      fuzzy = ''
-        set distance 2
-        if test (count $argv) -gt 1
-            set distance $argv[2]
-        end
-          set spacedistance 20
-        if test (count $argv) -gt 2
-            set spacedistance $argv[3]
-        end
-        set res (string replace -a -r '([^\s])' "\$1.{0,$distance}" $argv[1])
-        set res (string replace -r "\.\{0,$distance\}\$" "" $res)
-        set res (string replace " " ".{0,$spacedistance}" $res)
-        echo $res
-      '';
-      rga-fzf = ''
-        set RG_PREFIX 'rga --files-with-matches --sort=path'
-        if test (count $argv) -gt 1
-          set RG_PREFIX "$RG_PREFIX $argv[1..-2]"
-        end
-        set -l file $file
-        set file (
-          FZF_DEFAULT_COMMAND="$RG_PREFIX '$argv[-1]'" \
-            fzf --sort --preview='test ! -z {} && \
-                  rga --pretty \
-                      --multiline \
-                      --multiline-dotall \
-                      --context 5 {q} {}' \
-                --phony -q "$argv[-1]" \
-                --bind "change:reload:$RG_PREFIX {q}" \
-                --preview-window='70%:wrap'
-        ) && \
-          echo "opening $file" && \
-          open "$file"
-      '';
       sw = "darwin-rebuild switch --flake ~/.config/nixpkgs";
     };
     shellInit = ''
