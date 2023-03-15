@@ -1,10 +1,15 @@
 { config, lib, pkgs, ... }:
-
+let
+  authSocket = "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock";
+in
 {
+  home.sessionVariables = {
+    SSH_AUTH_SOCK = authSocket;
+  };
   programs.ssh = {
     enable = true;
     extraOptionOverrides = {
-      IdentityAgent = "\"~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock\"";
+      IdentityAgent = "\"${authSocket}\"";
     };
   };
 }
