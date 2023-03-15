@@ -20,12 +20,9 @@
       url = "github:Mic92/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    neovim.url = "github:nix-community/neovim-nightly-overlay";
-    neovim.inputs.nixpkgs.follows = "unstable";
   };
 
-  outputs = inputs@{ self, darwin, nixpkgs, unstable, homeManager, nixIndexDatabase, neovim }:
+  outputs = inputs@{ self, darwin, nixpkgs, unstable, homeManager, nixIndexDatabase }:
     let mySystem = darwin.lib.darwinSystem rec {
       system = "aarch64-darwin";
       inputs = { inherit darwin nixpkgs homeManager; };
@@ -38,12 +35,10 @@
                 config = prev.pkgs.config;
               };
             };
-            neovim-nightly-overlay = neovim.overlay;
           in
           {
             nixpkgs.overlays = [
               overlay-unstable
-              neovim-nightly-overlay
             ];
           }
         )
