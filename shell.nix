@@ -87,6 +87,8 @@
       gcloud.disabled = true;
       docker_context.disabled = true;
       buf.disabled = true;
+      nix_shell.format = "via [\$symbol\$state](\$style) ";
+      nix_shell.symbol = "❄️ ";
     };
   };
 
