@@ -83,8 +83,9 @@
   system.defaults.NSGlobalDomain = {
     AppleInterfaceStyle = "Dark";
     AppleKeyboardUIMode = 3;
-    AppleMeasurementUnits = "Centimeters";
+    AppleEnableSwipeNavigateWithScrolls = true;
     AppleMetricUnits = 1;
+    AppleMeasurementUnits = "Centimeters";
     AppleTemperatureUnit = "Celsius";
     ApplePressAndHoldEnabled = false;
     NSNavPanelExpandedStateForSaveMode = true;
@@ -108,7 +109,4 @@
   };
 
   system.defaults.loginwindow.GuestEnabled = false;
-
-  system.keyboard.enableKeyMapping = true;
-  system.keyboard.nonUS.remapTilde = true;
 }
