@@ -19,7 +19,7 @@ rec {
 
 
     includes = [{
-      condition = "gitdir:~/Dev/src/lab.weave.nl/**/.git";
+      condition = "hasconfig:remote.*.url:git@lab.weave.nl**";
       contents = {
         user = {
           email = "mathieu@weave.nl";
