@@ -16,11 +16,34 @@
 
   homebrew = {
     enable = true;
+    onActivation.cleanup = "uninstall";
+    taps = [
+      "railwaycat/emacsmacport"
+    ];
     brews = [
       "mas"
+      "luajit"
+      "python@3.8"
+      "go@1.19"
+      "golangci-lint"
+      {
+        name = "railwaycat/emacsmacport/emacs-mac";
+        args = [ "with-modules" ];
+      }
     ];
     casks = [
+      "amethyst"
+      "bluesnooze" # disable bluetooth on sleep.
+      "choosy" # open specific links in specific apps.
+      "google-chrome"
+      "obsidian"
+      "daisydisk"
+      "vanilla" # hide icons in menu bar.
+      "xquartz"
       "raycast"
+      "vlc"
+      "transmission"
+      "insomnia"
     ];
     masApps = {
       "Xcode" = 497799835;

@@ -5,7 +5,7 @@
     ./git.nix
     ./shell.nix
     ./ssh.nix
-    ./emacs.nix
+    #./emacs.nix
   ];
 
   programs = {
@@ -18,13 +18,14 @@
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
-    terminal-notifier
-    unstable._1password # cli
+    # unstable._1password # cli # copied to /usr/local/bin/op in configuration.nix
     # unstable._1password-gui # does not work.
-    docker
     # nicotine-plus # Soulseek client
+    unstable.jetbrains.pycharm-professional
+    unstable.jetbrains.goland
 
     # cli tools
+    pkgconf
     coreutils # gnu coreutils
     gnused
     autoconf
@@ -38,8 +39,6 @@
     htop # see all the processes
     ctags # create index of objects in source files
     cmake # make all
-    # timetrap # tui time tracker
-
     flyctl # fly.io cli (heroku like service)
 
     ripgrep-all # ripgrep, but also search in PDFs, E-Books, Office documents, zip, tar.gz, and more
@@ -47,42 +46,8 @@
 
     # editor
     unstable.neovim
-    efm-langserver # general purpose lsp
-
-    pgcli # postgres cli
-    (postgresql_13.withPackages (p: [ p.postgis ]))
-
-    # nix lang
-    rnix-lsp
-
-    # golang
-    unstable.go
-    unstable.gopls # lsp
-    unstable.gotools # goimports etc.
-    unstable.gofumpt # formatter like gofmt
-
-    # web lsp's
-    nodePackages.vscode-langservers-extracted
-
-    # javascript, json, node
     nodejs
-    nodePackages.prettier # format json
-
-    # lua
-    lua
-    sumneko-lua-language-server # lsp
-
-    # python
-    python38Full
-    python38Packages.pip
-    unstable.poetry
-
-    # rust
     cargo
-
-    clojure
-
-    kafkacat
   ];
 }
 # vim: sw=2 sts=2 ts=2 fdm=indent expandtab
