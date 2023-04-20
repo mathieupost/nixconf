@@ -18,9 +18,7 @@
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
-    thefuck
     terminal-notifier
-
     unstable._1password # cli
     # unstable._1password-gui # does not work.
     docker

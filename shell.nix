@@ -5,6 +5,7 @@
   home.packages = with pkgs; [
     any-nix-shell
     comma # run everything with "," without installing
+    thefuck
     babelfish # convert POSIX to fish
     ttyd # shell in your browser
   ];
