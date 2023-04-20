@@ -35,10 +35,17 @@
                 config = prev.pkgs.config;
               };
             };
+            overlay-intel = final: prev: rec {
+              intel = import nixpkgs {
+                system = "x86_64-darwin";
+                config = prev.pkgs.config;
+              };
+            };
           in
           {
             nixpkgs.overlays = [
               overlay-unstable
+              overlay-intel
             ];
           }
         )
