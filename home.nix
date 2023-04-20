@@ -12,7 +12,7 @@
     # Let Home Manager install and manage itself.
     home-manager.enable = true;
     gpg.enable = true;
-    # java.enable = true;
+    java.enable = true;
   };
 
   fonts.fontconfig.enable = true;
@@ -23,7 +23,6 @@
     # unstable._1password-gui # does not work.
     docker
     # nicotine-plus # Soulseek client
-    jre_minimal
 
     # cli tools
     coreutils # gnu coreutils
