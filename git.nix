@@ -36,14 +36,14 @@ rec {
     ];
 
     aliases = {
-      gl = "!git --no-pager log -10 --graph --pretty=\"%Cred%h%C(yellow)%d%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset\"";
+      main = "!git branch --list master main | sed 's/^[* ] //'";
       wip = "!git add -A && git commit -m 'chore: work in progress (WIP)'";
       undo = "reset HEAD~1 --mixed";
       wipe = "!git add -A && git commit --no-verify --quiet -m 'WIPE SAVEPOINT' && git reset HEAD~1 --hard";
       fixup = "!f() { git commit --fixup \${1} && git rebase \${1}~1 -i --autosquash; }; f";
       stash-staged = "!git stash --keep-index && git stash push -m 'staged' --keep-index && git stash pop stash@{1}";
-      log-since-last-tag = "!git log $(git describe origin/master --tags --abbrev=0)..origin/master --oneline";
-      log-since-last-tag-main = "!git log $(git describe origin/main --tags --abbrev=0)..origin/main --oneline";
+      log-graph = "!git --no-pager log -10 --graph --pretty=\"%Cred%h%C(yellow)%d%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset\"";
+      log-since-last-tag = "!git log $(git describe origin/$(git main) --tags --abbrev=0)..origin/$(git main) --oneline";
       open = "!open $(git config --get remote.origin.url | sed 's%:%/%g' | sed 's%git@%https://%g' | sed 's%\.git%%g')";
       fuzzy-checkout = "!git checkout --track $(git branch --all | fzf | tr -d \\[:space:\\])";
     };
