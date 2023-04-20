@@ -89,6 +89,15 @@
       buf.disabled = true;
       nix_shell.format = "via [\$symbol\$state](\$style) ";
       nix_shell.symbol = "❄️ ";
+      kubernetes = {
+        disabled = false;
+        detect_files = [ "env.yaml" ];
+        context_aliases = {
+          "gke_.*_energyzero-(?P<var_cluster>.*)" = "\$var_cluster";
+          "weave_cluster_microk8s_(?P<var_cluster>.*)" = "\$var_cluster";
+          "gke_.*-(?P<var_cluster>.*)" = "\$var_cluster";
+        };
+      };
     };
   };
 
