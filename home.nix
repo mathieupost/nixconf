@@ -11,7 +11,6 @@
   programs = {
     # Let Home Manager install and manage itself.
     home-manager.enable = true;
-    gpg.enable = true;
     java.enable = true;
   };
 
