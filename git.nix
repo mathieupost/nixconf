@@ -31,11 +31,8 @@ rec {
       ".DS_Store"
       "._*"
       ".ignore"
-      ".pre-commit-config.yaml"
       ".envrc"
       ".direnv/"
-      ".nix/"
-      "result" # nix flake result file
     ];
 
     aliases = {
