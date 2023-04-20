@@ -84,6 +84,9 @@
     settings = {
       cmd_duration.min_time = 500;
       command_timeout = 1000;
+      gcloud.disabled = true;
+      docker_context.disabled = true;
+      buf.disabled = true;
     };
   };
 
