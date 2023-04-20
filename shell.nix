@@ -11,7 +11,11 @@
   ];
 
   programs.bash.enable = true;
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+    enableAutosuggestions = true;
+    autocd = true;
+  };
   programs.fish = {
     enable = true;
     shellAliases = {
