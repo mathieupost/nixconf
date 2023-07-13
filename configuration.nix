@@ -38,7 +38,6 @@
       "google-chrome"
       "obsidian"
       "daisydisk"
-      "vanilla" # hide icons in menu bar.
       "xquartz"
       "raycast"
       "vlc"
@@ -51,6 +50,7 @@
       "AdGuard for Safari" = 1440147259;
       "Super Agent" = 1568262835;
       "Vimari" = 1480933944;
+      "Barbee" = 1548711022;
       "Slack" = 803453959;
       "Save to Reader" = 1640236961;
     };
