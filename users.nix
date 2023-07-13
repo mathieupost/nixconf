@@ -8,7 +8,7 @@
     shell = pkgs.fish;
   };
   home-manager.users.mathieu = { config, pkgs, lib, ... }: {
-    home.stateVersion = "22.11";
+    home.stateVersion = "23.05";
     imports = [
       ./home.nix
       ./darwin.nix
