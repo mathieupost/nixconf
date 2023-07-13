@@ -89,7 +89,8 @@
       nix_shell.symbol = "❄️ ";
       kubernetes = {
         disabled = false;
-        detect_files = [ "env.yaml" ];
+        detect_files = [ "skaffold.yaml" ];
+        detect_folders = [ "k8s" "terraform" ];
         context_aliases = {
           "gke_.*_energyzero-(?P<var_cluster>.*)" = "\$var_cluster";
           "weave_cluster_microk8s_(?P<var_cluster>.*)" = "\$var_cluster";
