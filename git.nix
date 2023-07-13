@@ -33,6 +33,7 @@ rec {
       ".ignore"
       ".envrc"
       ".direnv/"
+      ".null-ls_*"
     ];
 
     aliases = {
