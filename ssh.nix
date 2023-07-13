@@ -10,6 +10,7 @@ in
     enable = true;
     extraOptionOverrides = {
       IdentityAgent = "\"${authSocket}\"";
+      Include = "~/.ssh/weave_config";
     };
   };
   home.packages = with pkgs; [
