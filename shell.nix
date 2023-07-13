@@ -19,16 +19,14 @@
   programs.fish = {
     enable = true;
     shellAliases = {
+      fish_title = "prompt_pwd"; # set terminal window title
       "..." = "cd ../..";
       "...." = "cd ../../..";
       "....." = "cd ../../../..";
       "......" = "cd ../../../../..";
-      "zf" = "z --pipe=fzf";
-      "glab" = "op plugin run -- glab";
-    };
-    functions = {
+      zf = "z --pipe=fzf";
+      glab = "op plugin run -- glab";
       darwin-switch = "darwin-rebuild switch --flake ~/.config/nixconf";
-      fish_title = "prompt_pwd"; # set terminal window title
     };
     shellInit = ''
       any-nix-shell fish --info-right | source
