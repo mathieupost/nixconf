@@ -1,5 +1,8 @@
 { config, pkgs, lib, ... }:
 
+let
+  pritunl-client = pkgs.callPackage ./pritunl-client.nix { };
+in
 {
   imports = [
     ./git.nix
@@ -17,6 +20,9 @@
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
+    # VPN
+    pritunl-client
+
     # unstable._1password # cli # copied to /usr/local/bin/op in configuration.nix
     # unstable._1password-gui # does not work.
     # nicotine-plus # Soulseek client
