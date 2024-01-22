@@ -3,7 +3,8 @@
 
 {
   home.packages = with pkgs; [
-    any-nix-shell
+    fzf
+    any-nix-shell # fish and zsh support for nix-shell
     comma # run everything with "," without installing
     thefuck
     babelfish # convert POSIX to fish
@@ -28,6 +29,9 @@
       glab = "op plugin run -- glab";
       darwin-switch = "darwin-rebuild switch --flake ~/.config/nixconf";
     };
+    plugins = with pkgs.fishPlugins; [
+      { name = "fzf"; src = fzf-fish.src; } # better than buit-in fzf keybinds
+    ];
     shellInit = ''
       any-nix-shell fish --info-right | source
       thefuck --alias | source
@@ -197,6 +201,7 @@
   };
   programs.fzf = {
     enable = true;
+    enableFishIntegration = false; # use fzf-fish plugin instead
   };
 }
 # vim: sw=2 sts=2 ts=2 fdm=indent expandtab
