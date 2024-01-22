@@ -18,7 +18,6 @@
     enable = true;
     onActivation.cleanup = "uninstall";
     taps = [
-      "railwaycat/emacsmacport"
     ];
     brews = [
       "mas"
@@ -26,10 +25,6 @@
       "python@3.8"
       "go@1.19"
       "golangci-lint"
-      {
-        name = "railwaycat/emacsmacport/emacs-mac";
-        args = [ "with-modules" ];
-      }
     ];
     casks = [
       "amethyst"

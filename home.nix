@@ -8,7 +8,7 @@ in
     ./git.nix
     ./shell.nix
     ./ssh.nix
-    #./emacs.nix
+    ./emacs.nix
   ];
 
   programs = {
@@ -23,11 +23,23 @@ in
     # VPN
     pritunl-client
 
+    (unstable.python3.withPackages (ps: with ps; [
+      jupyterlab
+      numpy
+      pandas
+      matplotlib
+      seaborn
+    ]))
+
     # unstable._1password # cli # copied to /usr/local/bin/op in configuration.nix
     # unstable._1password-gui # does not work.
     # nicotine-plus # Soulseek client
     unstable.jetbrains.pycharm-professional
     unstable.jetbrains.goland
+    gopls
+    delve
+    rnix-lsp
+    tree-sitter
 
     # cli tools
     pkgconf
