@@ -20,8 +20,7 @@ in
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
-    # VPN
-    pritunl-client
+    unstable.ollama
 
     (unstable.python3.withPackages (ps: with ps; [
       jupyterlab
@@ -45,21 +44,17 @@ in
     pkgconf
     coreutils # gnu coreutils
     gnused
-    autoconf
-    curl
     ripgrep # super fast grep
-    ugrep # ultra fast grep
+    ugrep # grep in pdf, zip, etc.
     fd # find replacement written in rust
-    bat # cat replacement written in rust
     jq # parse json in the terminal
-    yq-go # parse yaml in the terminal
-    htop # see all the processes
-    ctags # create index of objects in source files
-    cmake # make all
-    flyctl # fly.io cli (heroku like service)
+    unstable.flyctl # fly.io cli (heroku like service)
+    glab
+    k9s
+    postgresql
+    pgcli
 
-    ripgrep-all # ripgrep, but also search in PDFs, E-Books, Office documents, zip, tar.gz, and more
-    graphicsmagick # for pdfs
+    graphviz
 
     # editor
     unstable.neovim

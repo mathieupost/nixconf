@@ -21,23 +21,27 @@
     ];
     brews = [
       "mas"
-      "luajit"
-      "python@3.8"
-      "go@1.19"
-      "golangci-lint"
+      "cmake"
+      "automake"
+      "libtool"
+      "pkg-config"
     ];
     casks = [
+      "docker"
       "amethyst"
       "bluesnooze" # disable bluetooth on sleep.
       "choosy" # open specific links in specific apps.
       "google-chrome"
       "obsidian"
       "daisydisk"
-      "xquartz"
       "raycast"
       "vlc"
       "transmission"
       "insomnia"
+      "postman"
+      "microsoft-teams"
+      "pritunl"
+      "visual-studio-code"
     ];
     masApps = {
       "Xcode" = 497799835;
