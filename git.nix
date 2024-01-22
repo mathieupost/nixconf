@@ -34,6 +34,8 @@ rec {
       ".envrc"
       ".direnv/"
       ".null-ls_*"
+      ".idea"
+      ".vscode"
     ];
 
     aliases = {
