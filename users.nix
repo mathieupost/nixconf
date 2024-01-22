@@ -5,7 +5,7 @@
   users.users.mathieu = {
     name = "mathieu";
     home = "/Users/mathieu";
-    shell = pkgs.fish;
+    shell = pkgs.zsh;
   };
   home-manager.users.mathieu = { config, pkgs, lib, ... }: {
     home.stateVersion = "23.11";

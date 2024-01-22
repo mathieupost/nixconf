@@ -34,33 +34,94 @@
     '';
   };
 
-  programs.kitty = {
+  programs.wezterm = {
+    package = pkgs.unstable.wezterm;
     enable = true;
-    font = {
-      name = "JetBrainsMono Nerd Font";
-      size = 13;
-    };
-    keybindings = {
-      "kitty_mod+f" = "launch --type=overlay --stdin-source=@screen_scrollback fzf --no-sort --no-mouse --exact -i";
-      "shift+enter" = "send_text all \\x1b[13;2u";
-      "ctrl+enter" = "send_text all \\x1b[13;5u";
-    };
-    settings = {
-      term = "xterm-256color";
-      macos_thicken_font = "0.25";
-      macos_option_as_alt = "yes";
-      scrollback_lines = 100000;
-      close_on_child_death = "yes";
-      hide_window_decorations = "yes";
+    extraConfig = ''
+      function tab_title(tab_info)
+        local title = tab_info.tab_title
+        -- if the tab title is explicitly set, take that
+        if title and #title > 0 then
+          return title
+        end
+        -- Otherwise, use the title from the active pane in that tab
+        return tab_info.active_pane.title
+      end
 
-      tab_bar_min_tabs = 1;
-      tab_bar_style = "powerline";
-      tab_powerline_style = "slanted";
-    };
-    extraConfig = builtins.readFile (builtins.fetchurl {
-      url = "https://raw.githubusercontent.com/GiuseppeCesarano/kitty-theme-OneDark/97781aa8ea2a4c74ecf711d5456e25509876d6e2/OneDark.conf";
-      sha256 = "0ickbbk7j1ig66qp1rwxmpm8dd1kplijlhvdvk1s70xp8qr40a6z";
-    });
+      function trim_title(title, max_width)
+        if #title > max_width then
+          return title:sub(1, max_width - 1) .. "…"
+        else
+          return title
+        end
+      end
+
+      wezterm.on(
+        'format-tab-title',
+        function(tab, tabs, panes, config, hover, max_width)
+          local title = tab_title(tab)
+          title = trim_title(title, max_width-2)
+          title = ' ' .. title .. ' '
+
+          return {
+            { Attribute = { Intensity = 'Bold' } },
+            { Text = title },
+          }
+        end
+      )
+
+      local act = wezterm.action
+      return {
+        default_prog = { '${pkgs.fish}/bin/fish' },
+        set_environment_variables = {
+          TERMINFO_DIRS = '/etc/profiles/per-user/mathieu/share/terminfo',
+        },
+        term = 'wezterm',
+        dpi = 110,
+        font = wezterm.font { family = 'JetBrainsMono Nerd Font' },
+        font_size = 10.0,
+        color_scheme = 'OneDark (base16)',
+        keys = {
+          { key = '-', mods = 'CTRL', action = wezterm.action.DisableDefaultAssignment },
+          { key = '=', mods = 'CTRL', action = wezterm.action.DisableDefaultAssignment },
+          { key = 'w', mods = 'CTRL|CMD', action = act.ActivateKeyTable { name = 'window' } },
+          { key = 'W', mods = 'CTRL|CMD', action = act.ActivateKeyTable { name = 'window' } },
+        },
+        key_tables = {
+          window = {
+            { key = 's', mods = 'CTRL|CMD', action = act.SplitPane { direction = 'Down' } },
+            { key = 'v', mods = 'CTRL|CMD', action = act.SplitPane { direction = 'Right' } },
+
+            { key = 'h', mods = 'CTRL|CMD', action = act.ActivatePaneDirection 'Left' },
+            { key = 'l', mods = 'CTRL|CMD', action = act.ActivatePaneDirection 'Right' },
+            { key = 'k', mods = 'CTRL|CMD', action = act.ActivatePaneDirection 'Up' },
+            { key = 'j', mods = 'CTRL|CMD', action = act.ActivatePaneDirection 'Down' },
+
+            { key = 'H', mods = 'CTRL|CMD', action = act.AdjustPaneSize { 'Left', 5 } },
+            { key = 'L', mods = 'CTRL|CMD', action = act.AdjustPaneSize { 'Right', 5 } },
+            { key = 'K', mods = 'CTRL|CMD', action = act.AdjustPaneSize { 'Up', 5 } },
+            { key = 'J', mods = 'CTRL|CMD', action = act.AdjustPaneSize { 'Down', 5 } },
+          },
+        },
+
+        -- UI
+        hide_tab_bar_if_only_one_tab = true,
+        use_fancy_tab_bar = false,
+        window_decorations = 'RESIZE', -- Remove title bar
+        window_padding = { left = 0, right = 0, top = 0, bottom = 0 },
+        tab_max_width = 32,
+
+        -- Scrolling
+        enable_scroll_bar = true,
+        scrollback_lines = 500000,
+        alternate_buffer_wheel_scroll_speed = 1,
+
+        -- SSH
+        ssh_domains = {
+          { name = 'hackbook', remote_address = 'hackbook' },
+        },
+      }
+    '';
   };
 
   home.sessionVariables = {
