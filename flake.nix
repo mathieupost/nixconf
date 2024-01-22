@@ -2,7 +2,7 @@
   description = "Nix Darwin configuration";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-23.05-darwin";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-23.11-darwin";
     unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     darwin = {
@@ -11,7 +11,7 @@
     };
 
     homeManager = {
-      url = "github:nix-community/home-manager/release-23.05";
+      url = "github:nix-community/home-manager/release-23.11";
       # url = "path:/Users/mathieu/Dev/src/m9t.dev/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -66,6 +66,7 @@
     {
       darwinConfigurations = {
         Mathieus-M2-Pro = mySystem;
+        Mathieus-MacBook-Pro-2 = mySystem;
       };
     };
 }
