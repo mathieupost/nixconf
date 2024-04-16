@@ -2,9 +2,7 @@
 { config, lib, pkgs, ... }:
 
 {
-  home.packages = with pkgs; [
-    unstable.warp-terminal
-  ];
+  home.packages = with pkgs; [];
 
   programs.wezterm = {
     package = pkgs.unstable.wezterm;
