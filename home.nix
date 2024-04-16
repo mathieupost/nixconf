@@ -22,14 +22,6 @@ in
   home.packages = with pkgs; [
     unstable.ollama
 
-    (unstable.python3.withPackages (ps: with ps; [
-      jupyterlab
-      numpy
-      pandas
-      matplotlib
-      seaborn
-    ]))
-
     # unstable._1password # cli # copied to /usr/local/bin/op in configuration.nix
     # unstable._1password-gui # does not work.
     # nicotine-plus # Soulseek client
