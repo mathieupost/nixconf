@@ -7,6 +7,7 @@ in
   imports = [
     ./git.nix
     ./shell.nix
+    ./terminal.nix
     ./ssh.nix
     ./emacs.nix
   ];
