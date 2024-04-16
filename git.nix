@@ -59,6 +59,7 @@ rec {
 
       pull.rebase = "true";
       rebase.autostash = "true";
+      rerere.enabled = "true"; # Reuse recorded resolution of conflicted merges
       push.autoSetupRemote = "true";
 
       merge.tool = "vimdiff";
