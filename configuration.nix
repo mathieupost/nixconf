@@ -40,7 +40,6 @@
       "insomnia"
       "postman"
       "microsoft-teams"
-      "pritunl"
       "visual-studio-code"
     ];
     masApps = {
