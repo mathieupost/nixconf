@@ -9,6 +9,7 @@
     thefuck
     babelfish # convert POSIX to fish
     ttyd # shell in your browser
+    unstable.warp-terminal
   ];
 
   programs.bash.enable = true;
