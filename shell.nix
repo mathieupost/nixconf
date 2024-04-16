@@ -140,7 +140,6 @@
     enable = true;
     goPath = "Dev";
     goBin = "Dev/bin";
-    goPrivate = [ "lab.weave.nl" ];
   };
 
   programs.starship = {
@@ -155,13 +154,6 @@
       nix_shell.symbol = "❄️ ";
       kubernetes = {
         disabled = false;
-        detect_files = [ "skaffold.yaml" ];
-        detect_folders = [ "k8s" "terraform" ];
-        context_aliases = {
-          "gke_.*_energyzero-(?P<var_cluster>.*)" = "\$var_cluster";
-          "weave_cluster_microk8s_(?P<var_cluster>.*)" = "\$var_cluster";
-          "gke_.*-(?P<var_cluster>.*)" = "\$var_cluster";
-        };
       };
     };
   };

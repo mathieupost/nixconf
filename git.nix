@@ -4,7 +4,6 @@
 rec {
   home.file.".config/git/allowed_signers".text = ''
     mathieupost@gmail.com ${programs.git.signing.key}
-    mathieu@weave.nl ${programs.git.signing.key}
   '';
   programs.git = {
     package = pkgs.gitAndTools.gitFull;
@@ -16,16 +15,6 @@ rec {
     iniContent.gpg.format = "ssh";
     iniContent.gpg.ssh.program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
     iniContent.gpg.ssh.allowedSignersFile = "~/.config/git/allowed_signers";
-
-
-    includes = [{
-      condition = "hasconfig:remote.*.url:git@lab.weave.nl**";
-      contents = {
-        user = {
-          email = "mathieu@weave.nl";
-        };
-      };
-    }];
 
     ignores = [
       ".DS_Store"
