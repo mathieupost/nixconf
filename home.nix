@@ -33,8 +33,6 @@ in
     # unstable._1password # cli # copied to /usr/local/bin/op in configuration.nix
     # unstable._1password-gui # does not work.
     # nicotine-plus # Soulseek client
-    unstable.jetbrains.pycharm-professional
-    unstable.jetbrains.goland
     gopls
     delve
     rnix-lsp
