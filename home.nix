@@ -39,8 +39,6 @@ in
     postgresql
     pgcli
 
-    graphviz
-
     # editor
     unstable.neovim
     nodejs
