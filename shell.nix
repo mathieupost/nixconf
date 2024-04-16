@@ -35,6 +35,7 @@
     shellInit = ''
       any-nix-shell fish --info-right | source
       thefuck --alias | source
+      fish_add_path /opt/homebrew/bin
     '';
   };
 
