@@ -27,7 +27,6 @@
       "....." = "cd ../../../..";
       "......" = "cd ../../../../..";
       zf = "z --pipe=fzf";
-      glab = "op plugin run -- glab";
       darwin-switch = "darwin-rebuild switch --flake ~/.config/nixconf";
     };
     plugins = with pkgs.fishPlugins; [

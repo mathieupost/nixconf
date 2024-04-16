@@ -43,7 +43,6 @@ in
     fd # find replacement written in rust
     jq # parse json in the terminal
     unstable.flyctl # fly.io cli (heroku like service)
-    glab
     k9s
     postgresql
     pgcli
