@@ -40,6 +40,7 @@
       darwinConfigurations = {
         Mathieus-M2-Pro = mySystem;
         Mathieus-MacBook-Pro-2 = mySystem;
+        Mathieus-MacBook-M2-Pro = mySystem;
       };
     };
 }
