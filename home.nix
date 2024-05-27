@@ -29,7 +29,7 @@ in
 
     # cli tools
     pkgconf
-    coreutils # gnu coreutils
+    coreutils-prefixed # gnu coreutils
     gnused
     ripgrep # super fast grep
     ugrep # grep in pdf, zip, etc.
