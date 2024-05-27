@@ -25,6 +25,9 @@
       "automake"
       "libtool"
       "pkg-config"
+      "gcc"
+      "fastlane"
+      "cocoapods"
     ];
     casks = [
       "docker"
