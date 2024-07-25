@@ -44,6 +44,10 @@ in
     unstable.neovim
     nodejs
     cargo
+
+    # Elixir
+    unstable.elixir_1_17
+    elixir-ls
   ];
 }
 # vim: sw=2 sts=2 ts=2 fdm=indent expandtab
