@@ -21,6 +21,7 @@ rec {
       ".DS_Store"
       "._*"
       ".ignore"
+      "flake.*"
       ".envrc"
       ".direnv/"
       ".null-ls_*"
