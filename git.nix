@@ -47,6 +47,7 @@ rec {
         editor = "vim";
         excludesFile = "~/.config/git/ignore";
       };
+      init.defaultBranch = "main";
 
       pull.rebase = "true";
       rebase.autostash = "true";
