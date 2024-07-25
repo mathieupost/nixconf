@@ -3,7 +3,7 @@
 
 {
   programs.emacs = {
-    enable = true;
+    enable = false;
     package = pkgs.unstable.emacs29-macport;
     extraPackages = epkgs: with epkgs; [ vterm zmq ];
   };
