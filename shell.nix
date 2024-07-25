@@ -14,7 +14,7 @@
   programs.bash.enable = true;
   programs.zsh = {
     enable = true;
-    enableAutosuggestions = true;
+    autosuggestions.enable = true;
     autocd = true;
   };
   programs.fish = {

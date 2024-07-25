@@ -74,8 +74,7 @@
 
   # Fonts
   fonts = {
-    fontDir.enable = true;
-    fonts = with pkgs; [
+    packages = with pkgs; [
       recursive
       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     ];

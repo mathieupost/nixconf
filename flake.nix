@@ -2,7 +2,7 @@
   description = "Nix Darwin configuration";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-23.11-darwin";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-24.05-darwin";
     unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     darwin = {
@@ -11,7 +11,7 @@
     };
 
     homeManager = {
-      url = "github:nix-community/home-manager/release-23.11";
+      url = "github:nix-community/home-manager/release-24.05";
       # url = "path:/Users/mathieu/Dev/src/m9t.dev/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -29,7 +29,7 @@
       modules = [
         ./overlays.nix
         # Enable searching the index for missing binaries
-        nixIndexDatabase.nixosModules.nix-index
+        # nixIndexDatabase.nixosModules.nix-index
         homeManager.darwinModules.home-manager
         ./users.nix
         ./configuration.nix

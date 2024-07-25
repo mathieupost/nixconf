@@ -8,7 +8,7 @@
     shell = pkgs.zsh;
   };
   home-manager.users.mathieu = { config, pkgs, lib, ... }: {
-    home.stateVersion = "23.11";
+    home.stateVersion = "24.05";
     imports = [
       ./home.nix
       ./darwin.nix
