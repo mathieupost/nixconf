@@ -38,7 +38,7 @@ rec {
       stash-staged = "!git stash --keep-index && git stash push -m 'staged' --keep-index && git stash pop stash@{1}";
       log-graph = "!git --no-pager log -10 --graph --pretty=\"%Cred%h%C(yellow)%d%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset\"";
       log-since-last-tag = "!git log $(git describe origin/$(git main) --tags --abbrev=0)..origin/$(git main) --oneline";
-      open = "!open $(git config --get remote.origin.url | sed 's%:%/%g' | sed 's%git@%https://%g' | sed 's%\.git%%g')";
+      open = "!open $(git config --get remote.origin.url | sed 's%:%/%g' | sed 's%git@%https://%g' | sed 's%\\.git%%g')";
       fuzzy-checkout = "!git checkout --track $(git branch --all | fzf | tr -d \\[:space:\\])";
     };
 
