@@ -15,6 +15,7 @@ rec {
     iniContent.gpg.format = "ssh";
     iniContent.gpg.ssh.program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
     iniContent.gpg.ssh.allowedSignersFile = "~/.config/git/allowed_signers";
+    lfs.enable = true;
 
     ignores = [
       ".DS_Store"
